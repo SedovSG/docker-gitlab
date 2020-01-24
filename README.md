@@ -30,3 +30,9 @@ $ docker-compose up -d
 $ docker exec -it gitlab_app gitlab-rails console
 $ Notify.test_email('email', 'Test', 'Test').deliver
 ```
+
+## Обновление контейнеров
+
+```bash
+$ docker images --format "{{.Repository}}:{{.Tag}}" | grep --invert-match '<none>' | xargs -L1 docker pull
+```
